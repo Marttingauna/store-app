@@ -10,13 +10,15 @@ import { SalesPersonListComponent } from './sales-person-list/sales-person-list.
 import { HttpClientModule } from '@angular/common/http';
 /* Servicio de productos */
 import { ProductService } from './services/product.service';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 //declarations: Declaraciones de los componentes que se usaran en el modulo
 //imports: Importacion de los componentes que se usaran en el modulo
 @NgModule({
   declarations: [
     AppComponent,
-    SalesPersonListComponent
+    SalesPersonListComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
