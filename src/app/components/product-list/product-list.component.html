@@ -1,1 +1,4 @@
-<p>product-list works!</p>
+<!-- Accediendo a los productos desde el componente, estos valores fueron asignados basados a la llamada al servicio -->
+<p *ngFor="let tempProduct of products">
+  {{ tempProduct.name }} : {{ tempProduct.unitPrice }}
+</p>
