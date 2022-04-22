@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
 
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-product-list',
@@ -18,22 +17,21 @@ export class ProductListComponent implements OnInit {
     this.listProducts();
   }
   //Método para obtener todos los productos, de esta manera se usaria para el tag table normal
-  // listProducts(){
-  //   //Este metodo se ejecutaran de forma asincrona, por lo que se debe esperar a que se complete el observable
-  //   this.productService.getProductsList().subscribe(
-  //     data => {
-  //       this.products = data;
-  //     }
-  //   )
-  // }
+  listProducts(){
+    //Este metodo se ejecutaran de forma asincrona, por lo que se debe esperar a que se complete el observable
+    this.productService.getProductsList().subscribe(
+      data => {
+        this.products = data;
+      }
+    )
+  }
+
+  
 
   //Se crea una variable de tipo MatTableDataSource para poder usar el componente de la tabla
-  dataSource = new MatTableDataSource<Product>(this.products);
-  displayedColumns: string[] = ['imageUrl','name', 'description', 'unitPrice', 'unitsInStock'];
+  // dataSource = (this.products);
+  // displayedColumns: string[] = ['imageUrl','name', 'description', 'unitPrice', 'unitsInStock'];
 
-  //Método para obtener todos los productos, se invoca una vez que se 'suscribe' al observable.
-  public listProducts() {
-    let resp = this.productService.getProductsList();
-    resp.subscribe( product => this.dataSource.data=product as Product[]);
-  }
+
+
 }

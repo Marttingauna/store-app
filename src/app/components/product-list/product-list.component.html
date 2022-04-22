@@ -1,35 +1,21 @@
 <!-- Accediendo a los productos desde el componente, estos valores fueron asignados basados a la llamada al servicio
  -->
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="imageUrl">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let dataSource">
-      <img src="{{ dataSource.imageUrl }}" height="50" />
-    </td>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Nombre</th>
-    <td mat-cell *matCellDef="let dataSource">{{ dataSource.name }}</td>
-  </ng-container>
 
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Descripcion</th>
-    <td mat-cell *matCellDef="let dataSource">{{ dataSource.description }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="unitPrice">
-    <th mat-header-cell *matHeaderCellDef>Precio</th>
-    <td mat-cell *matCellDef="let dataSource">
-      {{ dataSource.unitPrice | currency: "USD":true }}&nbsp;&nbsp;
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="unitsInStock">
-    <th mat-header-cell *matHeaderCellDef>Unidades en stock</th>
-    <td mat-cell *matCellDef="let dataSource">
-      {{ dataSource.unitsInStock }}
-    </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+<p-table [value]="products" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th></th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Precio unitario</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td><img src="{{ product.imageUrl }}" height="50" /></td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.unitPrice | currency: "USD":true }}</td>
+    </tr>
+  </ng-template>
+</p-table>
