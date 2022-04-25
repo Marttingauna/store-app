@@ -17,9 +17,9 @@ import { MenuComponent } from './components/pages/menu/menu.component';
 import {TableModule} from 'primeng/table';
 import {MenuModule} from 'primeng/menu';
 import { AppRoutingModule } from './app-routing.module';
-// import {MenuItem} from 'primeng/api'
-import { NavMenuComponent } from './components/pages/nav-menu/nav-menu.component';
 import { SignInComponent } from './components/pages/sign-in/sign-in.component';
+import {InputTextModule} from 'primeng/inputtext';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 
 
 //declarations: Declaraciones de los componentes que se usaran en el modulo
@@ -27,12 +27,10 @@ import { SignInComponent } from './components/pages/sign-in/sign-in.component';
 @NgModule({
   declarations: [
     AppComponent,
-    // SalesPersonListComponent,
     ProductListComponent,
     MenuComponent,
     NavMenuComponent,
-    SignInComponent
-
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +39,8 @@ import { SignInComponent } from './components/pages/sign-in/sign-in.component';
     HttpClientModule,
     TableModule,
     MenuModule,
+    InputTextModule,
+
   ],
   /* Referencia al servicio de producto, para poder inyectar el servicio
    * en otras partes de la aplicación*/
