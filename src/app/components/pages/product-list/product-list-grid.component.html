@@ -1,0 +1,47 @@
+<!-- Accediendo a los productos desde el componente, estos valores fueron asignados basados a la llamada al servicio
+ -->
+<div class="cardsProducts">
+  <div *ngFor="let tempProduct of products">
+    <div class="card">
+      <div class="image">
+        <img src="{{ tempProduct.imageUrl }}" />
+      </div>
+      <div class="detail-box">
+        <p-toggleButton
+          [(ngModel)]="checked1"
+          onLabel="Del carrito"
+          offLabel="Al carrito"
+          onIcon="pi pi-times"
+          offIcon="pi pi-shopping-cart"
+          [style]="{
+            width: '13em',
+            fontSize: '10px',
+            padding: '0.5em',
+            margin: '0.5em'
+          }"
+        ></p-toggleButton>
+      </div>
+      <div class="details">
+        <div class="center">
+          <h1>
+            {{ tempProduct.name }}<br />
+            <span
+              [style]="{
+                padding: '0.3em',
+                backgroundColor: 'red',
+                color: 'white',
+                borderRadius: '5px'
+              }"
+            >
+              <!-- {{ tempProduct.unitPrice | currency: "USD":true }} -->
+              <div *ngIf="tempProduct.unitPrice != 0; else myElseBlock">
+                {{ tempProduct.unitPrice | currency: "USD":true }}
+              </div>
+              <ng-template #myElseBlock> Gratis </ng-template>
+            </span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
