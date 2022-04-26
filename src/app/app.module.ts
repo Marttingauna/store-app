@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 //Angular material
 // import { SalesPersonListComponent } from './sales-person-list/sales-person-list.component';
-import { ProductListComponent } from './components/pages/product-list/product-list.component';
+import { ProductListComponent } from './components/pages/product-list/product-list-grid.component';
 import { MenuComponent } from './components/pages/menu/menu.component';
 
 //Importaciones de PrimeNG
@@ -20,8 +20,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './components/pages/sign-in/sign-in.component';
 import {InputTextModule} from 'primeng/inputtext';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-
-
+import {CardModule} from 'primeng/card';
+import {ButtonModule} from 'primeng/button';
+import {ToggleButtonModule} from 'primeng/togglebutton';
+import { FormsModule } from '@angular/forms';
 //declarations: Declaraciones de los componentes que se usaran en el modulo
 //imports: Importacion de los componentes que se usaran en el modulo
 @NgModule({
@@ -40,7 +42,10 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
     TableModule,
     MenuModule,
     InputTextModule,
-
+    CardModule,
+    ButtonModule,
+    ToggleButtonModule,
+    FormsModule,
   ],
   /* Referencia al servicio de producto, para poder inyectar el servicio
    * en otras partes de la aplicación*/

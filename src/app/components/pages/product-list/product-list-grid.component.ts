@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  templateUrl: './product-list-grid.component.html',
+  styleUrls: ['./product-list-grid.component.css']
 })
 export class ProductListComponent implements OnInit { 
   products!: Product[];
+  
   //Inyección de dependencia de servicio en el constructor del componente
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private primengConfig: PrimeNGConfig) { }
   //Se ejecuta al iniciar el componente
   ngOnInit(): void {
     this.listProducts();
+    this.primengConfig.ripple = true;
   }
   //Método para obtener todos los productos, de esta manera se usaria para el tag table normal
   listProducts(){
@@ -26,7 +29,7 @@ export class ProductListComponent implements OnInit {
     )
   }
 
-  
+  checked1: boolean = false;
 
   //Se crea una variable de tipo MatTableDataSource para poder usar el componente de la tabla
   // dataSource = (this.products);
