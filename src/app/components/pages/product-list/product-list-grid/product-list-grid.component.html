@@ -7,33 +7,24 @@
         <img src="{{ tempProduct.imageUrl }}" />
       </div>
       <div class="detail-box">
-        <p-toggleButton
-          name="btn-toggle"
-          [(ngModel)]="checked1"
-          onLabel="Quitar"
-          offLabel="Al carrito"
-          onIcon="pi pi-times"
-          offIcon="pi pi-shopping-cart"
-          [style]="{
+        <p-toggleButton name="btn-toggle" [(ngModel)]="checked1" onLabel="Quitar" offLabel="Al carrito"
+          onIcon="pi pi-times" offIcon="pi pi-shopping-cart" [style]="{
             width: '13em',
             fontSize: '10px',
             padding: '0.5em',
             margin: '0.5em'
-          }"
-        ></p-toggleButton>
+          }"></p-toggleButton>
       </div>
       <div class="details">
         <div class="center">
           <h1>
             {{ tempProduct.name }}<br />
-            <span
-              [style]="{
+            <span [style]="{
                 padding: '0.3em',
                 backgroundColor: 'red',
                 color: 'white',
                 borderRadius: '5px'
-              }"
-            >
+              }">
               <!-- {{ tempProduct.unitPrice | currency: "USD":true }} -->
               <div *ngIf="tempProduct.unitPrice != 0; else myElseBlock">
                 {{ tempProduct.unitPrice | currency: "USD":true }}
