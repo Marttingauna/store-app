@@ -2,16 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //BrowserAnimationsModule es requerido para las animaciones
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
-import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 /* Modulo de cliente http para las peticiones */
 import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
 /* Servicio de productos */
 import { ProductService } from './services/product.service';
-//Angular material
-// import { SalesPersonListComponent } from './sales-person-list/sales-person-list.component';
-import { ProductListComponent } from './components/pages/product-list/product-list-grid.component';
-import { MenuComponent } from './components/pages/menu/menu.component';
 
 //Importaciones de PrimeNG
 import {TableModule} from 'primeng/table';
@@ -22,31 +19,28 @@ import {InputTextModule} from 'primeng/inputtext';
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
 import {ToggleButtonModule} from 'primeng/togglebutton';
-import { FormsModule } from '@angular/forms';
 import { HomeModule } from './components/pages/home/home.module';
 import { NavbarModule } from './components/navbar/navbar.module';
+import { ProductListModule } from './components/pages/product-list/product-list.module';
 
 //declarations: Declaraciones de los componentes que se usaran en el modulo
 //imports: Importacion de los componentes que se usaran en el modulo
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    MenuComponent,
     SignInComponent,
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
+    BrowserModule,//Modulo de navegacion
+    BrowserAnimationsModule, //Modulo de animaciones
+    HttpClientModule, //Modulo de cliente http para las peticiones
+    AppRoutingModule,//Modulo de rutas
     
-    MenuModule,
-    CardModule,
-    ButtonModule,
-    ToggleButtonModule,
-    FormsModule,
+    //Modulos creados
     HomeModule,
-    NavbarModule
+    NavbarModule,
+    ProductListModule,
+    
   ],
   /* Referencia al servicio de producto, para poder inyectar el servicio
    * en otras partes de la aplicación*/
