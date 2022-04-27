@@ -24,6 +24,7 @@ import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
+import { HomeModule } from './components/pages/home/home.module';
 //declarations: Declaraciones de los componentes que se usaran en el modulo
 //imports: Importacion de los componentes que se usaran en el modulo
 @NgModule({
@@ -32,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     ProductListComponent,
     MenuComponent,
     NavMenuComponent,
-    SignInComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,
     ToggleButtonModule,
     FormsModule,
+    HomeModule,
   ],
   /* Referencia al servicio de producto, para poder inyectar el servicio
    * en otras partes de la aplicación*/
