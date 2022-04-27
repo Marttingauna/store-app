@@ -19,12 +19,13 @@ import {MenuModule} from 'primeng/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './components/pages/sign-in/sign-in.component';
 import {InputTextModule} from 'primeng/inputtext';
-import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './components/pages/home/home.module';
+import { NavbarModule } from './components/navbar/navbar.module';
+
 //declarations: Declaraciones de los componentes que se usaran en el modulo
 //imports: Importacion de los componentes que se usaran en el modulo
 @NgModule({
@@ -32,22 +33,20 @@ import { HomeModule } from './components/pages/home/home.module';
     AppComponent,
     ProductListComponent,
     MenuComponent,
-    NavMenuComponent,
-    SignInComponent
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    TableModule,
+    
     MenuModule,
-    InputTextModule,
     CardModule,
     ButtonModule,
     ToggleButtonModule,
     FormsModule,
     HomeModule,
+    NavbarModule
   ],
   /* Referencia al servicio de producto, para poder inyectar el servicio
    * en otras partes de la aplicación*/

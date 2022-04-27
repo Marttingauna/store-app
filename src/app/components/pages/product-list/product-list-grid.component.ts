@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit { 
   products!: Product[];
-  
+  iconCarrito: 'pi pi-times';
   //Inyección de dependencia de servicio en el constructor del componente
   constructor(private productService: ProductService, private primengConfig: PrimeNGConfig) { }
   //Se ejecuta al iniciar el componente
