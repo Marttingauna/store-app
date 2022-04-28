@@ -1,0 +1,25 @@
+.sidebar {
+  height: 95vh;
+  margin-top: 5.3vh;
+  width: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 40px;
+  background-color: #303134;
+}
+.sidebar div {
+  padding: 8px;
+  font-size: 24px;
+  display: block;
+}
+.nav-link {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: gray;
+  font-weight: bold;
+}
+.nav-link:hover {
+  color: white;
+  border-bottom: white solid 1px;
+}

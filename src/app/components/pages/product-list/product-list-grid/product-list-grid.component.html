@@ -1,38 +1,37 @@
 <!-- Accediendo a los productos desde el componente, estos valores fueron asignados basados a la llamada al servicio
  -->
+
 <div class="cardsProducts">
   <div *ngFor="let tempProduct of products">
     <div class="card">
       <div class="image">
         <img src="{{ tempProduct.imageUrl }}" />
+        <div class="cover bottom">
+          <div class="name">{{ tempProduct.name }}</div>
+          <div
+            class="price"
+            *ngIf="tempProduct.unitPrice != 0; else myElseBlock"
+          >
+            {{ tempProduct.unitPrice | currency: "USD":true }}
+          </div>
+          <ng-template class="price" #myElseBlock> Gratis </ng-template>
+        </div>
       </div>
       <div class="detail-box">
-        <p-toggleButton name="btn-toggle" [(ngModel)]="checked1" onLabel="Quitar" offLabel="Al carrito"
-          onIcon="pi pi-times" offIcon="pi pi-shopping-cart" [style]="{
+        <p-toggleButton
+          name="btn-toggle"
+          [(ngModel)]="checked1"
+          onLabel="Quitar"
+          offLabel="Al carrito"
+          onIcon="pi pi-times"
+          offIcon="pi pi-shopping-cart"
+          [style]="{
             width: '13em',
             fontSize: '10px',
             padding: '0.5em',
             margin: '0.5em'
-          }"></p-toggleButton>
-      </div>
-      <div class="details">
-        <div class="center">
-          <h1>
-            {{ tempProduct.name }}<br />
-            <span [style]="{
-                padding: '0.3em',
-                backgroundColor: 'red',
-                color: 'white',
-                borderRadius: '5px'
-              }">
-              <!-- {{ tempProduct.unitPrice | currency: "USD":true }} -->
-              <div *ngIf="tempProduct.unitPrice != 0; else myElseBlock">
-                {{ tempProduct.unitPrice | currency: "USD":true }}
-              </div>
-              <ng-template #myElseBlock> Gratis </ng-template>
-            </span>
-          </h1>
-        </div>
+          }"
+        ></p-toggleButton>
       </div>
     </div>
   </div>

@@ -1,65 +1,74 @@
 .cardsProducts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  /* gap: 15px; */
-  margin-left: 20px;
+  margin: 50px 0 0 30vh;
   justify-content: center;
 }
 
 .card {
   border-radius: 10px;
   overflow: hidden;
-  display: flex;
   height: 300px;
   width: 200px;
   margin-bottom: 20px;
   background-color: #303134;
+  transition: transform 0.4s ease ;
 }
+.card:hover {
+  transform: scale(1.10);
+  box-shadow: 0px 0px 12px 4px #000;
+}
+
 .card .image {
   height: 100%;
-  overflow: hidden;
+  overflow:hidden ;
 }
 .card .image img {
   width: 100%;
 }
-.card:hover .image img {
-  opacity: 0.5;
-}
+
 .detail-box {
   display: grid;
   justify-content: center !important;
 }
-.card .details {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transition: 0.5s;
-  transform-origin: bottom;
-  transform: perspective(2000px) rotateX(-90deg);
+
+.cover{
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  position: relative;
+  transition: all 0.4s cubic-bezier(.99,.99,0,.61);
+  padding: 1em;
 }
-.card:hover .details {
-  transform: perspective(2000px) rotateY(0deg);
+.name{
+  padding: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  background: linear-gradient(
+      50deg,
+      rgba(255, 255, 255, 0.049) 12%,
+      rgba(255, 255, 255, 0.053) 77%
+    );
+    box-shadow: 0px 4px 24px 1px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: transform 0.4s ease ;
 }
-.card .details .center {
-  padding: 10px;
-  border-radius: 0 0 10px 10px;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  background: #fff;
-  width: fit-content;
-  position: absolute;
-  overflow: hidden;
+.name:hover{
+  transform: scale(1.20);
 }
-.card .details .center h1 {
-  color: #ff3636;
-  font-size: 16px;
-  font-weight: 700;
+.price{
+  padding: 4px;
+  border-radius: 8px;
+  width: max-content;
+  background-color: red;
+  margin-top: 5px;
+  font-size: 12px;
 }
-.card .details .center h1 span {
-  font-size: 14px;
-  float: left;
-  color: #262626;
+
+.card:hover .bottom{
+    transition: all 0.4s cubic-bezier(.99,.99,0,.61);
+    bottom: 110px;
+}
+.bottom{
+  bottom: 0px;
 }
