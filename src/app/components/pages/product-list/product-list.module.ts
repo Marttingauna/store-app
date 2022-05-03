@@ -6,12 +6,9 @@ import { ProductlistPageComponent } from './productlist-page/productlist-page.co
 import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
 
 
-import { MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
-import { ChipModule } from 'primeng/chip';
 
 import { ProductListComponent } from './product-list-grid/product-list-grid.component';
-import { ToggleButtonModule } from 'primeng/togglebutton';
+import { MaterialModule } from 'src/app/common/material/material.module';
 
 
 
@@ -27,11 +24,8 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
   ],
   imports: [
     CommonModule,
-    MenuModule,
-    ButtonModule,
-    ToggleButtonModule,
+    MaterialModule,
     FormsModule,
-    ChipModule
   ]
 })
 export class ProductListModule { }

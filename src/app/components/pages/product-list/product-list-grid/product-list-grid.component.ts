@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -13,11 +12,10 @@ export class ProductListComponent implements OnInit {
   products!: Product[];
   iconCarrito: 'pi pi-times';
   //Inyección de dependencia de servicio en el constructor del componente
-  constructor(private productService: ProductService, private primengConfig: PrimeNGConfig) { }
+  constructor(private productService: ProductService) { }
   //Se ejecuta al iniciar el componente
   ngOnInit(): void {
     this.listProducts();
-    this.primengConfig.ripple = true;
   }
   //Método para obtener todos los productos, de esta manera se usaria para el tag table normal
   listProducts(){

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { InputTextModule } from 'primeng/inputtext';
 
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -18,7 +17,6 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   imports: [
     CommonModule,
     AppRoutingModule,
-    InputTextModule,
 
   ]
 })

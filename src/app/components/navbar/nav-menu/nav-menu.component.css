@@ -38,12 +38,12 @@
 .nav-link {
   padding: 10px 15px;
   cursor: pointer;
-  color: gray;
+  color: #FE3C3A;
   font-weight: bold;
 }
 .nav-link:hover {
-  color: white;
-  border-bottom: white solid 1px;
+  color: #E7912F;
+  border-bottom: #E7912F solid 1px;
 }
 
 .search-bar {
