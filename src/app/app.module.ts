@@ -11,18 +11,17 @@ import { AppComponent } from './app.component';
 import { ProductService } from './services/product.service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { SignInComponent } from './components/pages/sign-in/sign-in.component';
-import { HomeModule } from './components/pages/home/home.module';
-import { NavbarModule } from './components/navbar/navbar.module';
-import { ProductListModule } from './components/pages/product-list/product-list.module';
 import { MaterialModule } from './common/material/material.module';
+import { HomeModule } from './pages/home/home.module';
+import { ProductListModule } from './pages/product/product-list.module';
+import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.component';
 
 //declarations: Declaraciones de los componentes que se usaran en el modulo
 //imports: Importacion de los componentes que se usaran en el modulo
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
+    NavMenuComponent,
   ],
   imports: [
     BrowserModule,//Modulo de navegacion
@@ -33,7 +32,6 @@ import { MaterialModule } from './common/material/material.module';
     //Modulos creados
     MaterialModule,
     HomeModule,
-    NavbarModule,
     ProductListModule,
     
   ],

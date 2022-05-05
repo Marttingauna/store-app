@@ -17,9 +17,11 @@
   padding: 10px 15px;
   cursor: pointer;
   color: gray;
-  font-weight: bold;
 }
 .nav-link:hover {
   color: white;
   border-bottom: white solid 1px;
+}
+.active-link{
+  font-weight: bold;
 }
