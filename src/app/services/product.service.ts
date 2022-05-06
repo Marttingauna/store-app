@@ -16,7 +16,7 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   // Método para obtener todos los productos
-  getProductsList(): Observable<Product[]> {
+  getProductsList(categoryID: number): Observable<Product[]> {
     // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.products)// Mapeo de la respuesta de la API REST
