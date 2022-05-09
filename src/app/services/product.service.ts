@@ -17,8 +17,11 @@ export class ProductService {
 
   // Método para obtener todos los productos
   getProductsList(categoryID: number): Observable<Product[]> {
+
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryID}`;
+
     // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+    return this.httpClient.get<GetResponse>(searchUrl).pipe(
       map(response => response._embedded.products)// Mapeo de la respuesta de la API REST
     )
   }

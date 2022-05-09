@@ -12,7 +12,6 @@ const routes: Routes = [
             //Rutas hijas donde se iran agregando los componentes que se quieran mostrar
             { path: 'list', component: ProductListComponent },
             { path: 'category/:id', component: ProductListComponent },
-            { path: 'sport', component: SportComponent },
         ],
     },
     { path: '**', redirectTo: 'home' },
