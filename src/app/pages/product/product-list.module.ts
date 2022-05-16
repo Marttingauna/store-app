@@ -10,8 +10,9 @@ import { ActionComponent } from './components/action/action.component';
 import { SportComponent } from './components/sport/sport.component';
 import { ProductListComponent } from './components/product-list-grid/product-list-grid.component';
 import { ProductlistPageComponent } from './components/productlist-page/productlist-page.component';
-import { MenuSidebarComponent } from './components/menu-sidebar/menu-sidebar.component';
+import { MenuSidebarComponent } from './components/menu/menu-sidebar/menu-sidebar.component';
 import { ProductRoutingModule } from './product-routing.module';
+import { ProductCategoryMenuComponent } from './components/menu/product-category-menu/product-category-menu.component';
 
 
 
@@ -22,7 +23,8 @@ import { ProductRoutingModule } from './product-routing.module';
     MenuSidebarComponent,
     ProductListComponent,
     ActionComponent,
-    SportComponent
+    SportComponent,
+    ProductCategoryMenuComponent
   ],
   exports:[
     ProductlistPageComponent,
