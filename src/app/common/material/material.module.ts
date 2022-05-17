@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 /* Modulo de Angular donde importamos las clases de Material, usa una matriz de imports 
 donde se especifica que se importa el modulo de Material 
 "exports" donde se especifica que se exporta el modulo de Material */
@@ -13,6 +14,7 @@ donde se especifica que se importa el modulo de Material
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatFormFieldModule,
   ]
 })
 //Material Module sera un modulo que contiene todos los componentes de material y exporta una variable de tipo MaterialModule
