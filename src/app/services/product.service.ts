@@ -10,7 +10,6 @@ import { ProductCategory } from '../common/product-category';
 })
 export class ProductService {
   
-
   /*URL base de servicio a llamar - Direccion de API REST*/
   private baseUrl = 'http://localhost:8080/api/products';
 
@@ -19,31 +18,46 @@ export class ProductService {
   /* Angular tiene un marco de inyección de dependencia, HttpClient es el inyectable */
   constructor(private httpClient: HttpClient) { }
 
+  /**--------------------------------MÉTODOS------------------------------------------ */
+
   // Método para obtener todos los productos
   getProductsList(categoryID: number): Observable<Product[]> {
-
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryID}`;
-
     // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
-    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-      map(response => response._embedded.products)// Mapeo de la respuesta de la API REST
-    );
+    return this.getProducts(searchUrl);
   }
 
+  // Metodo para buscar un producto por su nombre
+  searchProducts(theKeyword: string): Observable<Product[]> {
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+    // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
+    return this.getProducts(searchUrl);
+  }
+
+  // Metodo para obtener un producto por su categoria
   getProductCategories():Observable<ProductCategory[]> {
     return this.httpClient.get<GetResponseProductsCategories>(this.categoryUrl).pipe(
       map(response => response._embedded.productCategory)// Mapeo de la respuesta de la API REST
     );
   }
 
+  // Metodo refactorizado para obtener los productos(Utilizado para metodo de busca y listado)
+  private getProducts(searchUrl: string): Observable<Product[]> {
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+      map(response => response._embedded.products)
+    );
+  }
+
+  
+
 }
+
 //Interface para obtener la respuesta del servicio en formato JSON y convertirlo a Product[]
 interface GetResponseProducts {
   _embedded: {
     products: Product[];
   }
 }
-
 interface GetResponseProductsCategories {
   _embedded: {
     productCategory: ProductCategory[];

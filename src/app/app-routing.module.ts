@@ -13,7 +13,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/product/product-list.module').then((m) => m.ProductListModule),
   },
-  { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({
