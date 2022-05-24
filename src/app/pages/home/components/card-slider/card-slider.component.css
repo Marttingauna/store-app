@@ -1,63 +1,54 @@
-.box{
-	margin: 0;
-	padding: 0;
-	width:300px;
-	box-shadow: 2px 2px 30px rgba(0,0,0 ,0.2);
-	border-radius: 10px;
-	overflow: hidden;
-	position: relative; 
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.75);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-	}
+.box {
+  width: 300px;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background-color: rgba(17, 25, 40, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
 
-	.slide-img{
-		height: 450px;
-		}
-		.slide-img img{
-		width:100%;
-		height: 100%;
-		object-fit: cover;
-		box-sizing: border-box;
-		}
+.slide-img {
+  height: 450px;
+}
+.slide-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-sizing: border-box;
+}
 
-		.detail-box{
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 10px 20px;
-			box-sizing: border-box;
-			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-			}
-			.type{
-			display: flex;
-			text-decoration: none;
-			flex-direction: column;
-			}
-			.type a{
-				text-decoration: none;
-				color:white;
-				margin: 5px Opx;
-				font-weight: 700;
-				letter-spacing: 0.5px;
-				padding-right: 8px;
-				}
-				.type span{
-				color:white;
-				}
-				
-					.price{
-					color: white;
-					font-weight: 600;
-					font-size: 1.1rem;
-					font-family: poppins;
-					letter-spacing: 0.5px;
-					}
-					
-		
+.detail-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.type {
+  display: flex;
+  text-decoration: none;
+  flex-direction: column;
+}
+.type a {
+  text-decoration: none;
+  color: white;
+  margin: 5px Opx;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding-right: 8px;
+}
+.type span {
+  color: white;
+}
+
+.price {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: poppins;
+  letter-spacing: 0.5px;
+}
