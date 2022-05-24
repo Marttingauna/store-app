@@ -20,6 +20,6 @@ export class SearchComponent implements OnInit {
   }
   searchProduct( search: String ) {
     console.log(search);
-    this.router.navigateByUrl(`/search/${search}`);
+    this.router.navigateByUrl(`product/search/${search}`);
   }
 }

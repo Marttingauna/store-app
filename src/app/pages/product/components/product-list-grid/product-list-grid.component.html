@@ -31,4 +31,8 @@
       </div>
     </div>
   </div>
+
+  <div *ngIf="products?.length === 0" class="notFound">
+    <h3>No se encontro ningun resultado que coincidan con esta busqueda...</h3>
+  </div>
 </div>
