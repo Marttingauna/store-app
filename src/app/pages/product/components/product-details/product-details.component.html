@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="detail-container">
+    <div class="left-column">
+      <img src="{{ product.imageUrl }}" alt="" />
+    </div>
+    <div class="rigth-column">
+      <span *ngIf="product.sku?.includes('ARCADE')">
+        <div class="tag-category yellow">Arcade</div>
+      </span>
+
+      <span *ngIf="product.sku?.includes('ACCION')">
+        <div class="tag-category red">Acción</div>
+      </span>
+
+      <span *ngIf="product.sku?.includes('SPORT')">
+        <div class="tag-category blue">Deporte</div>
+      </span>
+
+      <span *ngIf="product.sku?.includes('STRATEGY')">
+        <div class="tag-category green">Estratégia</div>
+      </span>
+
+      <h1>{{ product.name }}</h1>
+      <div class="price" *ngIf="product.unitPrice != 0; else myElseBlockPrice">
+        {{ product.unitPrice | currency: "USD":true }}
+      </div>
+      <ng-template class="price" #myElseBlockPrice> Gratis </ng-template>
+
+      <button
+        mat-raised-button
+        [style]="{
+          margin: '0.5em'
+        }"
+        color="warn"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+        AÑADIR AL CARRITO
+      </button>
+    </div>
+  </div>
+  <div>
+    <h2>Descripción</h2>
+    <p>{{ product.description }}</p>
+    <button
+      mat-raised-button
+      [style]="{
+        margin: '0.5em'
+      }"
+      routerLink="/product/list"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Volver a la lista de juegos
+    </button>
+  </div>
+</div>

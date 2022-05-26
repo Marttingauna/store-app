@@ -41,12 +41,23 @@ export class ProductService {
     );
   }
 
+  // Metodo para obtener un producto por su id
+  getProduct(theProductId: number): Observable<Product> {
+    const productUrl = `${this.baseUrl}/${theProductId}`;
+    // Se retorna un observable de un producto (Product) que se obtiene de la API REST
+    return this.httpClient.get<Product>(productUrl)
+  }
+
   // Metodo refactorizado para obtener los productos(Utilizado para metodo de busca y listado)
   private getProducts(searchUrl: string): Observable<Product[]> {
     return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
       map(response => response._embedded.products)
     );
   }
+
+  
+
+  
 
   
 
