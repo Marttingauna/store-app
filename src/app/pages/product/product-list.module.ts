@@ -10,6 +10,7 @@ import { MenuSidebarComponent } from './components/menu/menu-sidebar/menu-sideba
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductCategoryMenuComponent } from './components/menu/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/menu/search/search.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 
@@ -20,7 +21,8 @@ import { SearchComponent } from './components/menu/search/search.component';
     ProductListComponent,
     ActionComponent,
     ProductCategoryMenuComponent,
-    SearchComponent
+    SearchComponent,
+    ProductDetailsComponent
   ],
   exports:[
     ProductlistPageComponent,

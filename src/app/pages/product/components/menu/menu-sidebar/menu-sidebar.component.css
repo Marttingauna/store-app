@@ -1,26 +1,9 @@
 .sidebar {
-  height: 95vh;
-  margin-top: 5.3vh;
-  width: 200px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-color: #303134;
+  width: 100%;
 }
 .sidebar div {
   padding: 8px;
   font-size: 24px;
-  display: block;
+  display: flex;
 }
-.nav-link {
-  padding: 10px 15px;
-  cursor: pointer;
-  color: gray;
-}
-.nav-link:hover {
-  color: white;
-  border-bottom: white solid 1px;
-}
-.active-link{
-  font-weight: bold;
-}
+

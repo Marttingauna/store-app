@@ -5,9 +5,13 @@
   <div *ngFor="let tempProduct of products">
     <div class="card">
       <div class="image">
-        <img src="{{ tempProduct.imageUrl }}" />
+        <a routerLink="/product/{{ tempProduct.id }}">
+          <img src="{{ tempProduct.imageUrl }}" />
+        </a>
         <div class="cover bottom">
-          <div class="name">{{ tempProduct.name }}</div>
+          <a routerLink="/product/{{ tempProduct.id }}">
+            <div class="name">{{ tempProduct.name }}</div>
+          </a>
           <div
             class="price"
             *ngIf="tempProduct.unitPrice != 0; else myElseBlock"

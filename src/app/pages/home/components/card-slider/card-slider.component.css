@@ -1,5 +1,5 @@
 .box {
-  width: 300px;
+  width: 200px;
   box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   background-color: rgba(17, 25, 40, 0.75);
@@ -10,11 +10,11 @@
 }
 
 .slide-img {
-  height: 450px;
+  height: auto;
 }
 .slide-img img {
-  width: 100%;
-  height: 100%;
+  height: 300px;
+  width: 200px;
   object-fit: cover;
   box-sizing: border-box;
 }
@@ -26,7 +26,6 @@
   align-items: center;
   padding: 10px 20px;
   box-sizing: border-box;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .type {
   display: flex;

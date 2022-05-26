@@ -20,23 +20,24 @@
     </mat-form-field>
   </form> -->
   <div>
-    <mat-form-field appearance="standard" class="searchInput">
-      <input
-        #searchInput
-        matInput
-        placeholder="Buscar producto"
-        type="text"
-        autocomplete="off"
-        (keyup.enter)="searchProduct(searchInput.value)"
-      />
+    <mat-form-field appearance="standard" class="searchInput" [color]="color">
       <button
         mat-icon-button
-        matSuffix
+        matPrefix
         (click)="searchProduct(searchInput.value)"
         type="submit"
       >
         <mat-icon>search</mat-icon>
       </button>
+      <input
+        class="searchInput"
+        #searchInput
+        matInput
+        placeholder="Buscar"
+        type="text"
+        autocomplete="off"
+        (keyup.enter)="searchProduct(searchInput.value)"
+      />
     </mat-form-field>
   </div>
 </div>

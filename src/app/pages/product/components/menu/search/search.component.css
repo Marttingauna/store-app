@@ -1,4 +1,7 @@
 .searchInput{
     padding: 0 10px 0 10px;
-    width: 100%;
+    width: 30%;
+    background-color: #202020;
+    border-radius: 30px;
+    font-size: 12px;
 }
