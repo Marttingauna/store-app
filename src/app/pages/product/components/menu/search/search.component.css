@@ -1,7 +1,15 @@
-.searchInput{
-    padding: 0 10px 0 10px;
+.inputSearch{
     width: 30%;
+    border: none;
     background-color: #202020;
     border-radius: 30px;
-    font-size: 12px;
+    color: white;
+
+}
+
+.searchBtn{
+    background-color: rgb(255, 0, 64);
+    color: white;
+    border: none;
+    border-radius: 30px;
 }

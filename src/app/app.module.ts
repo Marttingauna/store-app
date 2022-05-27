@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { ProductService } from './services/product.service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './common/material/material.module';
 import { HomeModule } from './pages/home/home.module';
 import { ProductListModule } from './pages/product/product-list.module';
 import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.component';
@@ -30,9 +29,7 @@ import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.c
     AppRoutingModule,//Modulo de rutas
     
     //Modulos creados
-    MaterialModule,
     HomeModule,
-    ProductListModule,
     
   ],
   /* Referencia al servicio de producto, para poder inyectar el servicio

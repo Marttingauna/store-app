@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from 'src/app/common/material/material.module';
-import { ActionComponent } from './components/action/action.component';
 import { ProductListComponent } from './components/product-list-grid/product-list-grid.component';
 import { ProductlistPageComponent } from './components/productlist-page/productlist-page.component';
 import { MenuSidebarComponent } from './components/menu/menu-sidebar/menu-sidebar.component';
@@ -19,7 +17,6 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ProductlistPageComponent,
     MenuSidebarComponent,
     ProductListComponent,
-    ActionComponent,
     ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent
@@ -29,7 +26,6 @@ import { ProductDetailsComponent } from './components/product-details/product-de
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     ProductRoutingModule

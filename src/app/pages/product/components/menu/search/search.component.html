@@ -1,43 +1,33 @@
 <div>
-  <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="submiteando(myForm.value)">
-    <mat-form-field appearance="standard" class="input">
-      <mat-label>Realice su busqueda</mat-label>
-      <input
-        matInput
-        type="text"
-        autocomplete="off"
-        placeholder="Buscar"
-        name="search"
-      />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="submiteando(myForm.value)"
-        type="submit"
+  <div class="input-group input-group-sm mb-3">
+    <button
+      class="searchBtn input-group-text"
+      id="inputGroup-sizing-sm"
+      (click)="searchProduct(searchInput.value)"
+      type="submit"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-search"
+        viewBox="0 0 16 16"
       >
-        <mat-icon>search</mat-icon>
-      </button>
-    </mat-form-field>
-  </form> -->
-  <div>
-    <mat-form-field appearance="standard" class="searchInput" [color]="color">
-      <button
-        mat-icon-button
-        matPrefix
-        (click)="searchProduct(searchInput.value)"
-        type="submit"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
-      <input
-        class="searchInput"
-        #searchInput
-        matInput
-        placeholder="Buscar"
-        type="text"
-        autocomplete="off"
-        (keyup.enter)="searchProduct(searchInput.value)"
-      />
-    </mat-form-field>
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+        />
+      </svg>
+    </button>
+    <input
+      class="inputSearch form-control shadow-none"
+      aria-label="Small"
+      aria-describedby="inputGroup-sizing-sm"
+      #searchInput
+      placeholder="Buscar"
+      type="text"
+      autocomplete="off"
+      (keyup.enter)="searchProduct(searchInput.value)"
+    />
   </div>
 </div>

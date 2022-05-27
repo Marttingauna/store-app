@@ -1,9 +1,4 @@
 .sidebar {
-  width: 100%;
-}
-.sidebar div {
-  padding: 8px;
-  font-size: 24px;
-  display: flex;
+  margin-top: 45px;
 }
 

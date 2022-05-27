@@ -1,95 +1,148 @@
-<div class="keen-slider" #sliderHeaderRef>
-  <div class="keen-slider__slide slide">
-    <header class="header">
-      <video class="headervideo" autoPlay [muted]="true" loop>
-        <source
-          src="../../../../../assets/video/videoHeader1.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="content">
-        <h1 class="title">
-          Assassin's Creed <br />
-          Valhalla
-        </h1>
-        <div class="tagline">Obtener ahora</div>
+<div class="header">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="4"
+        aria-label="Slide 5"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="5"
+        aria-label="Slide 6"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <video class="d-block w-100" autoPlay [muted]="true" loop>
+          <source
+            src="../../../../../assets/video/videoHeader1.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="title">
+            Assassin's Creed <br />
+            Valhalla
+          </h1>
+          <div class="tagline">Obtener ahora</div>
+        </div>
       </div>
-    </header>
+      <div class="carousel-item">
+        <video class="d-block w-100" autoPlay [muted]="true" loop>
+          <source src="../assets/video/videoHeader2.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="title">God of war</h1>
+          <div class="tagline">Obtener ahora</div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video class="d-block w-100" autoPlay [muted]="true" loop>
+          <source
+            src="../../../../../assets/video/videoHeader3.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="title">Red Dead <br />Redemption II</h1>
+          <div class="tagline">Obtener ahora</div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <video class="d-block w-100" autoPlay [muted]="true" loop>
+          <source src="../assets/video/videoHeader4.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="title">
+            Marvel's<br />
+            Guardians of the Galaxy
+          </h1>
+          <div class="tagline">Obtener ahora</div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <video class="d-block w-100" autoPlay [muted]="true" loop>
+          <source src="../assets/video/videoHeader5.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="title">Horizon <br />Forbidden West</h1>
+          <div class="tagline">Obtener ahora</div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <video class="d-block w-100" autoPlay [muted]="true" loop>
+          <source src="../assets/video/videoHeader6.mp4" type="video/mp4" />
+        </video>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="title">
+            Marvel's<br />
+            Avengers
+          </h1>
+          <div class="tagline">Obtener ahora</div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <div class="keen-slider__slide slide">
-    <header class="header">
-      <video class="headervideo" autoPlay [muted]="true" loop>
-        <source
-          src="../../../../../assets/video/videoHeader2.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="content">
-        <h1 class="title">God of war</h1>
-        <div class="tagline">Obtener ahora</div>
-      </div>
-    </header>
-  </div>
-  <div class="keen-slider__slide slide">
-    <header class="header">
-      <video class="headervideo" autoPlay [muted]="true" loop>
-        <source
-          src="../../../../../assets/video/videoHeader3.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="content">
-        <h1 class="title">Red Dead <br />Redemption II</h1>
-        <div class="tagline">Obtener ahora</div>
-      </div>
-    </header>
-  </div>
-  <div class="keen-slider__slide slide">
-    <header class="header">
-      <video class="headervideo" autoPlay [muted]="true" loop>
-        <source
-          src="../../../../../assets/video/videoHeader4.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="content">
-        <h1 class="title">
-          Marvel's<br />
-          Guardians of the Galaxy
-        </h1>
-        <div class="tagline">Obtener ahora</div>
-      </div>
-    </header>
-  </div>
-  <div class="keen-slider__slide slide">
-    <header class="header">
-      <video class="headervideo" autoPlay [muted]="true" loop>
-        <source
-          src="../../../../../assets/video/videoHeader5.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="content">
-        <h1 class="title">Horizon <br />Forbidden West</h1>
-        <div class="tagline">Obtener ahora</div>
-      </div>
-    </header>
-  </div>
-  <div class="keen-slider__slide slide">
-    <header class="header">
-      <video class="headervideo" autoPlay [muted]="true" loop>
-        <source
-          src="../../../../../assets/video/videoHeader6.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="content">
-        <h1 class="title">
-          Marvel's<br />
-          Avengers
-        </h1>
-        <div class="tagline">Obtener ahora</div>
-      </div>
-    </header>
+  <div>
+    <h1>Titulo</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+      consectetur orci sed nulla facilisis, eget euismod nisi tincidunt.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+      ac turpis egestas. Lorem ipsum dolor sit, amet consectetur adipisicing
+      elit. Quidem eligendi unde aspernatur quas quam quod distinctio deleniti
+      natus, eveniet, iusto maxime necessitatibus doloremque optio. Enim
+      distinctio sequi reiciendis eius laboriosam.
+    </p>
   </div>
 </div>
