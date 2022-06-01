@@ -10,7 +10,7 @@ import { ProductCategoryMenuComponent } from './components/menu/product-category
 import { SearchComponent } from './components/menu/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ProductlistPageComponent,
   ],
   imports: [
+    NgbModule, //Modulo de bootstrap usado para el componente de paginacion.
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

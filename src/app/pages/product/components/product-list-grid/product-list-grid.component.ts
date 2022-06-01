@@ -11,9 +11,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
   iconCarrito: 'pi pi-times';
 
-  products!: Product[];
-  currentCategoryID: number;
-  searchMode: boolean;
+  products: Product[] = [];
+  currentCategoryID: number = 1;
+  previousCategoryID: number = 1;
+  searchMode: boolean = false;
+
+  thePageNumber: number = 1;
+  thePageSize: number = 10;
+  theTotalElements: number = 0;
 
   //Inyección de dependencia de servicio en el constructor del componente
   //Inyección de dependencia de la ruta activa, es util para obtener el id de la categoria
@@ -27,20 +32,19 @@ export class ProductListComponent implements OnInit {
       this.listProducts();
     });
   }
-  
+
   //Método para obtener todos los productos, de esta manera se usaria para el tag table normal
   listProducts() {
     /** Si el parametro searchMode es verdadero, se ejecuta el metodo handleSearchProducts(BUSQUEDA POR PALABRA CLAVE)
      * si es falso, se ejecuta el metodo handleListProducts(LISTADO DE TODOS LOS PRODUCTOS)
-    */    
+     */
     this.searchMode = this.route.snapshot.paramMap.has('keyword');
-    
+
     if (this.searchMode) {
       this.handleSearchProducts();
     } else {
       this.handleListProducts();
     }
-    
   }
   // Método para buscar productos
   handleSearchProducts() {
@@ -48,14 +52,12 @@ export class ProductListComponent implements OnInit {
 
     /**
      *Servicio para buscar productos por keyword.
-     *Llamada al servicio para buscar productos por keyword y la 
+     *Llamada al servicio para buscar productos por keyword y la
      *respuesta se almacena en la variable products
      */
-    this.productService.searchProducts(theKeyword).subscribe(
-      data => {
-        this.products = data;
-      }
-    );
+    this.productService.searchProducts(theKeyword).subscribe((data) => {
+      this.products = data;
+    });
   }
 
   checked1: boolean = false;
@@ -76,11 +78,32 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryID = 1;
     }
 
+    if (this.previousCategoryID != this.currentCategoryID) {
+      this.thePageNumber = 1;
+    }
+
+    this.previousCategoryID = this.currentCategoryID;
+    console.log(
+      `currentCategoryID=${this.currentCategoryID}, thePageNumber=${this.thePageNumber}`
+    );
+
     //Obtenemos los productos de la categoria actual
 
     //Este metodo se ejecutaran de forma asincrona, por lo que se debe esperar a que se complete el observable
-    this.productService.getProductsList(this.currentCategoryID).subscribe((data) => {
-      this.products = data;
-    });
+    this.productService
+      .getProductsListPaginate(
+        this.thePageNumber - 1,
+        this.thePageSize,
+        this.currentCategoryID
+      )
+      .subscribe(this.processResult());
+  }
+  processResult() {
+    return (data:any) => {
+      this.products = data._embedded.products;
+      this.thePageNumber = data.page.number + 1;
+      this.thePageSize = data.page.size;
+      this.theTotalElements = data.page.totalElements;
+    }
   }
 }

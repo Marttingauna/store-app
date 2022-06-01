@@ -15,7 +15,7 @@ import { HomeModule } from './pages/home/home.module';
 import { ProductListModule } from './pages/product/product-list.module';
 import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 //declarations: Declaraciones de los componentes que se usaran en el modulo
 //imports: Importacion de los componentes que se usaran en el modulo
@@ -29,7 +29,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule, //Modulo de animaciones
     HttpClientModule, //Modulo de cliente http para las peticiones
     AppRoutingModule,//Modulo de rutas
-    NgbModule, //Modulo de bootstrap
 
     //Modulos creados
     HomeModule,
