@@ -22,13 +22,17 @@ img {
   transition:0.5s;
 }
 .container {
-  max-width:600px;
-  max-height:350px;
   display:flex;
   justify-content:center;
   align-items:center;
   gap:20px;
   cursor: pointer;
+  margin-left: 60px;
+}
+.container img{
+  width:35%;
+  height:35%;
+  object-fit:cover;
 }
 .container:hover img {
   opacity:0.3;
