@@ -77,7 +77,7 @@ export class ProductListComponent implements OnInit {
     } else {
       this.currentCategoryID = 1;
     }
-
+    //Si el id de la categoria es diferente al id de la categoria anterior, el numero de pagina se pone en 1
     if (this.previousCategoryID != this.currentCategoryID) {
       this.thePageNumber = 1;
     }
@@ -88,16 +88,16 @@ export class ProductListComponent implements OnInit {
     );
 
     //Obtenemos los productos de la categoria actual
-
     //Este metodo se ejecutaran de forma asincrona, por lo que se debe esperar a que se complete el observable
     this.productService
       .getProductsListPaginate(
-        this.thePageNumber - 1,
-        this.thePageSize,
+        this.thePageNumber - 1, // El -1 es porque el numero de pagina empieza en 0 y el numero de pagina de la api empieza en 1
+        this.thePageSize, // El tamaño de la pagina
         this.currentCategoryID
       )
       .subscribe(this.processResult());
   }
+  //Método para procesar los resultados de la petición
   processResult() {
     return (data:any) => {
       this.products = data._embedded.products;
