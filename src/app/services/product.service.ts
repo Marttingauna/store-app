@@ -23,15 +23,16 @@ export class ProductService {
     thePage: number,
     thePageSize: number,
     categoryID: number
-    ): Observable<GetResponseProducts> {
-      const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryID}`
-       + `&page=${thePage}&size=${thePageSize}`;
-      
-      // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
-      return this.httpClient.get<GetResponseProducts>(searchUrl);
-    }
-    
-    // Método para obtener todos los productos
+  ): Observable<GetResponseProducts> {
+    const searchUrl =
+      `${this.baseUrl}/search/findByCategoryId?id=${categoryID}` +
+      `&page=${thePage}&size=${thePageSize}`;
+
+    // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
+  }
+
+  // Método para obtener todos los productos
   getProductsList(categoryID: number): Observable<Product[]> {
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryID}`;
     // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
@@ -43,6 +44,19 @@ export class ProductService {
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
     // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
     return this.getProducts(searchUrl);
+  }
+
+  searchProductsPaginate(
+    thePage: number,
+    thePageSize: number,
+    theKeyword: string
+  ): Observable<GetResponseProducts> {
+    const searchUrl =
+      `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}` +
+      `&page=${thePage}&size=${thePageSize}`;
+
+    // Se retorna un observable de productos (Product[]) que se obtiene de la API REST
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
   }
 
   // Metodo para obtener un producto por su categoria
@@ -74,7 +88,7 @@ export class ProductService {
 interface GetResponseProducts {
   _embedded: {
     products: Product[];
-  },
+  };
   page: {
     size: number;
     totalElements: number;

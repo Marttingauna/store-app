@@ -20,6 +20,8 @@ export class ProductListComponent implements OnInit {
   thePageSize: number = 5;
   theTotalElements: number = 0;
 
+  previousKeyword: string;
+
   //Inyección de dependencia de servicio en el constructor del componente
   //Inyección de dependencia de la ruta activa, es util para obtener el id de la categoria
   constructor(
@@ -50,14 +52,26 @@ export class ProductListComponent implements OnInit {
   handleSearchProducts() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
 
+    if (this.previousKeyword != theKeyword) {
+      this.thePageNumber = 1;
+    }
+
+    this.previousKeyword = theKeyword;
+
+    console.log(`keyword=${theKeyword}, thePageNumber=${this.thePageNumber}`);
+
     /**
      *Servicio para buscar productos por keyword.
      *Llamada al servicio para buscar productos por keyword y la
      *respuesta se almacena en la variable products
      */
-    this.productService.searchProducts(theKeyword).subscribe((data) => {
-      this.products = data;
-    });
+    this.productService
+      .searchProductsPaginate(
+        this.thePageNumber - 1,
+        this.thePageSize,
+        theKeyword
+      )
+      .subscribe(this.processResult());
   }
 
   checked1: boolean = false;
@@ -99,12 +113,12 @@ export class ProductListComponent implements OnInit {
   }
   //Método para procesar los resultados de la petición
   processResult() {
-    return (data:any) => {
+    return (data: any) => {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;
       this.thePageSize = data.page.size;
       this.theTotalElements = data.page.totalElements;
-    }
+    };
   }
 
   updatePageSize(pageSize: number) {
