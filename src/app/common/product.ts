@@ -1,6 +1,6 @@
 export class Product {
     //TO DO: Implementar inicialización de producto
-    id: number;
+    id: string;
     sku: string;
     name: string;
     description: string;
