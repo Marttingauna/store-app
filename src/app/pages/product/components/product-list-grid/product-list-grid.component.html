@@ -12,54 +12,70 @@
           <div routerLink="/product/{{ tempProduct.id }}">
             <div>{{ tempProduct.name }}</div>
           </div>
-          <div
-            class="price"
-            *ngIf="tempProduct.unitPrice != 0; else myElseBlock"
-          >
-            {{ tempProduct.unitPrice | currency: "USD":true }}
+          <div class="priceAndBtn">
+            <div
+              class="price"
+              *ngIf="tempProduct.unitPrice != 0; else myElseBlock"
+            >
+              {{ tempProduct.unitPrice | currency: "USD":true }}
+            </div>
+            <ng-template #myElseBlock> Gratis </ng-template>
+            <button
+              type="button"
+              class="btn btn-warning"
+              (click)="addToCart(tempProduct)"
+              style="
+                --bs-btn-padding-y: 0.25rem;
+                --bs-btn-padding-x: 0.5rem;
+                --bs-btn-font-size: 0.75rem;
+              "
+            >
+              Agregar al carrito
+            </button>
           </div>
-          <ng-template #myElseBlock> Gratis </ng-template>
         </div>
+        <div></div>
       </div>
-      <div></div>
+    </div>
+
+    <div *ngIf="products?.length === 0" class="notFound">
+      <h3>
+        No se encontro ningun resultado que coincidan con esta busqueda...
+      </h3>
     </div>
   </div>
+  <div class="footer-pagination">
+    <div class="row">
+      <div class="col-md-6"></div>
 
-  <div *ngIf="products?.length === 0" class="notFound">
-    <h3>No se encontro ningun resultado que coincidan con esta busqueda...</h3>
-  </div>
-</div>
-<div class="footer-pagination">
-  <div class="row">
-    <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-9" style="padding-left: 60%">
+            <ngb-pagination
+              [(page)]="thePageNumber"
+              [pageSize]="thePageSize"
+              [collectionSize]="theTotalElements"
+              [maxSize]="4"
+              [boundaryLinks]="true"
+              (pageChange)="listProducts()"
+            >
+            </ngb-pagination>
+          </div>
 
-    <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-9" style="padding-left: 60%">
-          <ngb-pagination
-            [(page)]="thePageNumber"
-            [pageSize]="thePageSize"
-            [collectionSize]="theTotalElements"
-            [maxSize]="4"
-            [boundaryLinks]="true"
-            (pageChange)="listProducts()"
-          >
-          </ngb-pagination>
-        </div>
+          <div class="col-md-3 mt-2" style="text-align: right">
+            <span class="mr-2">Tamaño pagina </span>
 
-        <div class="col-md-3 mt-2" style="text-align: right">
-          <span class="mr-2">Tamaño pagina </span>
-
-          <select
-            class="form-select"
-            (change)="updatePageSize($any($event.target).value)"
-          >
-            <option>2</option>
-            <option selected="true">5</option>
-            <option>10</option>
-            <option>20</option>
-            <option>50</option>
-          </select>
+            <select
+              class="form-select"
+              (change)="updatePageSize($any($event.target).value)"
+            >
+              <option>2</option>
+              <option selected="true">5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
