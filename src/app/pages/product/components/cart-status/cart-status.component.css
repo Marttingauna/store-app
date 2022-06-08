@@ -1,0 +1,32 @@
+
+
+.cart-area i{
+    display: flex;
+    font-size:22px;
+    color:#fff;
+    padding-left:7px
+}
+
+.total{
+    background:#ff0040;
+    line-height:30px;
+    color:#fff;
+    border-radius:30px;
+    float:left;
+    padding-left:7px
+}
+
+.total span{
+    display:inline-block;
+    background:#fff;
+    padding:0 8px;
+    color:#000;
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+    margin-left:7px
+}
+
+.cart{
+    display: inline-block;
+    padding-left: 10px;
+}

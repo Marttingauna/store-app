@@ -1,4 +1,7 @@
 .sidebar {
+  display: flex;
   margin-top: 45px;
+  width: max-content;
+  float: right;
 }
 
