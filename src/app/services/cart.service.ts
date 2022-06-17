@@ -14,17 +14,13 @@ export class CartService {
   totalQuantity: Subject<number> = new Subject<number>();
   
   addToCart(theCartItem: CartItem) {
-    //Check if item is already in cart
+    
     let alreadyExistsInCart: boolean = false;
     let existingCartItem: CartItem = undefined;
     if (this.cartItems.length > 0) { //si el carrito tiene elementos
-      //Buscar si el item ya existe en el carrito
-      for (let tempCartItem of this.cartItems) {
-        if (tempCartItem.id === theCartItem.id) {
-          existingCartItem = tempCartItem;
-          break;
-        }
-      }
+      // Retorna el primer elemento que cumpla la condicion, sino undefined
+     existingCartItem= this.cartItems.find(indexCartItem => indexCartItem.id === theCartItem.id);
+      
       //Si el item existe en el carrito
       alreadyExistsInCart = (existingCartItem != undefined);
     }
@@ -38,6 +34,7 @@ export class CartService {
     this.computeCartTotals();
   }
 
+  // Actualizar el precio total del carrito de compras
   computeCartTotals() {
   
     let totalPriceValue: number = 0;
@@ -68,3 +65,4 @@ export class CartService {
     console.log(`Precio total: ${totalPriceValue.toFixed(2)}, Cantidad total: ${totalQuantityValue}`);
   }
 }
+  
