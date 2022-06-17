@@ -2,42 +2,50 @@
     <div class="section-content section-content-p30">
         <div class="container-fluid">
 
-            <table class="table table-dark ">
+            <div *ngIf="cartItems.length > 0">
 
-                <tr>
-                    <th width="20%">Imagen de producto</th>
-                    <th width="50%">Detalle</th>
-                    <th width="30%"></th>
-                </tr>
+                <table class="table table-dark ">
 
-                <tr *ngFor="let tempCartItem of cartItems">
-                    <td>
-                        <img src="{{ tempCartItem.imageUrl }}" class="img-responsive" width="200px" />
-                    </td>
-                    <td>
-                        <p>{{ tempCartItem.name }}</p>
-                        <p>{{ tempCartItem.unitPrice | currency: 'USD' }}</p>
-                    </td>
-                    <td>
-                        <div class="items">
-                            <label>Cantidad:</label> {{ tempCartItem.quantity }}
-                        </div>
+                    <tr>
+                        <th width="20%">Imagen de producto</th>
+                        <th width="50%">Detalle</th>
+                        <th width="30%"></th>
+                    </tr>
 
-                        <p class="mt-2">Precio: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD' }}
-                        </p>
-                    </td>
-                </tr>
+                    <tr *ngFor="let tempCartItem of cartItems">
+                        <td>
+                            <img src="{{ tempCartItem.imageUrl }}" class="img-responsive" width="200px" />
+                        </td>
+                        <td>
+                            <p>{{ tempCartItem.name }}</p>
+                            <p>{{ tempCartItem.unitPrice | currency: 'USD' }}</p>
+                        </td>
+                        <td>
+                            <div class="items">
+                                <label>Cantidad:</label> {{ tempCartItem.quantity }}
+                            </div>
 
-                <tr>
-                    <td colspan="2"></td>
-                    <td style="font-weight: bold">
-                        <p>Cantidad: {{ totalQuantity }}</p>
+                            <p class="mt-2">Precio: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD'
+                                }}
+                            </p>
+                        </td>
+                    </tr>
 
-                        <p>Precio a pagar: {{ totalPrice | currency: 'USD' }}</p>
-                    </td>
-                </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td style="font-weight: bold">
+                            <p>Cantidad: {{ totalQuantity }}</p>
 
-            </table>
+                            <p>Precio a pagar: {{ totalPrice | currency: 'USD' }}</p>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div *ngIf="cartItems.length === 0" class="alert alert-dark col-md-12"><strong>El carrito de compras se
+                    encuentra vacio</strong>
+
+            </div>
 
         </div>
     </div>
