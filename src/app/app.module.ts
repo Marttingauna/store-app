@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './pages/home/home.module';
 import { ProductListModule } from './pages/product/product-list.module';
 import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.component';
+import { LoginComponent } from './pages/login/components/login/login.component';
+import { LoginStatusComponent } from './pages/login/components/login-status/login-status.component';
 
 
 
@@ -23,6 +25,8 @@ import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.c
   declarations: [
     AppComponent,
     NavMenuComponent,
+    LoginComponent,
+    LoginStatusComponent,
   ],
   imports: [
     BrowserModule,//Modulo de navegacion
