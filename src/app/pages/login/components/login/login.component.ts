@@ -1,56 +1,58 @@
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
-import * as OktaSignIn from '@okta/okta-signin-widget';
 
-import myAppConfig from '../../../../config/store-app-config';
+import { Router } from '@angular/router';
+import { LoginUser } from 'src/app/common/login-user';
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from '../../../../services/token.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-// Referencia para iniciar el widget de inicio de sesión
-  oktaSignin: any;
+  isLogged = false;
+  isLoginFail = false;
+  loginUsuario: LoginUser;
+  nombreUsuario: string;
+  password: string;
+  roles: string[] = [];
+  errMsg: string;
 
-  constructor(private oktaAuthService: OktaAuthService) { 
-    // Inicializar el widget de inicio de sesión
-    this.oktaSignin = new OktaSignIn({
-      // Configuración del widget de inicio de sesión
-      //Personalizar el logo de inicio de sesión
-      logo: 'assets/images/logo.png',
-      baseUrl: myAppConfig.oidc.issuer.split('/oauth2')[0],
-      clientId: myAppConfig.oidc.clientId,
-      redirectUri: myAppConfig.oidc.redirectUri,
-      authParams: {
-        /* Activar el código de verificación de autenticación 
-        en la pantalla de inicio de sesión.
-        Es un enfoque recomendado para controlar el acceso de
-        la aplicacion con el servidor de autenticación.
-        */
-        pkce: true,
-        issuer: myAppConfig.oidc.issuer,
-        scopes: myAppConfig.oidc.scopes
-      }
-    });
-
-  }
+  constructor(
+    private tokenService: TokenService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-     // Eliminamos cualquier elemento anterior que estuviera en el DOM
-    this.oktaSignin.remove();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
+  }
 
-    this.oktaSignin.renderEl({
-      // Renderizar el elemento en el DOM
-      el: '#okta-sign-in-widget'}, 
-      (response) => {
-        if (response.status === 'SUCCESS') {
-          // Iniciar sesión con el servidor de autenticación
-          this.oktaAuthService.signInWithRedirect();
-        }
+  onLogin() {
+    this.loginUsuario = new LoginUser(this.nombreUsuario, this.password);
+    this.authService.loginUser(this.loginUsuario).subscribe(
+      (data) => {
+        this.isLogged = true;
+        this.isLoginFail = false;
+
+        this.tokenService.setToken(data.token);
+        this.tokenService.setUserName(data.nombreUsuario);
+        this.tokenService.setAuthorities(data.authorities);
+        this.roles = data.authorities;
+        window.location.reload();
+        this.router.navigate(['/home']);
       },
       (error) => {
-        throw error;
+        this.isLogged = false;
+        this.isLoginFail = true;
+        this.errMsg = error.error.message;
+        // console.log(this.errMsg);
       }
     );
   }

@@ -99,8 +99,13 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "src/styles.css",
               "node_modules/@okta/okta-sign-in-widget/dist/css/okta-sign-in-widget.min.css"
+=======
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles.css"
+>>>>>>> login&register
             ],
             "scripts": []
           }

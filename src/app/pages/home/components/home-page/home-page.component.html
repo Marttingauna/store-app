@@ -1,2 +1,9 @@
+<div class="container text-left">
+  <div *ngIf="isLogged; else loggedOut">
+    <h2>Bienvenido {{ nombreUsuario }}</h2>
+  </div>
+  <ng-template #loggedOut>
+    <h3>No has iniciado sesión aún</h3>
+  </ng-template>
+</div>
 <app-header-slider></app-header-slider>
-<app-card-slider> </app-card-slider>

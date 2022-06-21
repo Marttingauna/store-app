@@ -2,19 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //BrowserAnimationsModule es requerido para las animaciones
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// import { ToastrModule } from 'ngx-toastr';
+
 import { FormsModule } from '@angular/forms';
 /* Modulo de cliente http para las peticiones */
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { interceptorProvider } from './interceptors/prod-interceptor.service';
 /* Servicio de productos */
 import { ProductService } from './services/product.service';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './pages/home/home.module';
 import { ProductListModule } from './pages/product/product-list.module';
 import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.component';
 import { LoginComponent } from './pages/login/components/login/login.component';
+import { RegisterComponent } from './pages/login/components/register/register.component';
+import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
 
 
 
@@ -25,20 +31,25 @@ import { LoginComponent } from './pages/login/components/login/login.component';
     AppComponent,
     NavMenuComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,//Modulo de navegacion
-    BrowserAnimationsModule, //Modulo de animaciones
     HttpClientModule, //Modulo de cliente http para las peticiones
     AppRoutingModule,//Modulo de rutas
+    FormsModule,//Modulo de formularios
+
+    BrowserAnimationsModule, //Modulo de animaciones
+    // ToastrModule.forRoot(), // ToastrModule notificaciones
 
     //Modulos creados
     HomeModule,
+    ProductListModule,
     
   ],
   /* Referencia al servicio de producto, para poder inyectar el servicio
    * en otras partes de la aplicación*/
-  providers: [ProductService],
+  providers: [ProductService, interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

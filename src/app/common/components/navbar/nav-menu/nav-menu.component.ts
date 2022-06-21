@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenService } from '../../../../services/token.service';
 
 @Component({
   selector: 'nav-menu',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavMenuComponent implements OnInit {
   
-  constructor() { }
+  isLogged= false;
+  constructor(private tokenService: TokenService, private route: Router) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged= false;
+    }
+  }
+  onLogout(){
+    this.tokenService.logout();
+    this.route.navigate(['/login']);
+    window.location.reload();
   }
 
 }
