@@ -1,6 +1,5 @@
 import { CartService } from './../../../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
 import { CartItem } from '../../../../common/cart-item';
@@ -59,5 +58,16 @@ export class ProductListComponent implements OnInit {
     const theCartItem = new CartItem(theProduct)
     //Llamando al servicio para agregar un producto al carrito 
     this.cartService.addToCart(theCartItem);
+  }
+
+  borrar(id: number) {
+    this.productoService.delete(id).subscribe(
+      data => {
+        
+        this.cargarProductos();
+      },
+      err => {
+      }
+    );
   }
 }

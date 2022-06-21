@@ -13,41 +13,29 @@
             <div>{{ tempProduct.name }}</div>
           </div>
           <div class="priceAndBtn">
-            <div
-              class="price"
-              *ngIf="tempProduct.unitPrice != 0; else myElseBlock"
-            >
+            <div class="price" *ngIf="tempProduct.unitPrice != 0; else myElseBlock">
               {{ tempProduct.unitPrice | currency: "USD":true }}
             </div>
             <ng-template #myElseBlock> Gratis </ng-template>
-            <button
-              type="button"
-              class="btn btn-danger"
-              (click)="addToCart(tempProduct)"
-              style="
+            <button type="button" class="btn btn-danger" (click)="addToCart(tempProduct)" style="
                 --bs-btn-padding-y: 0.25rem;
                 --bs-btn-padding-x: 0.5rem;
                 --bs-btn-font-size: 0.75rem;
-              "
-            >
+              ">
               Agregar al carrito
             </button>
             <div *ngIf="isAdmin">
-              <button
-                class="btn btn-outline-warning"
-                routerLink="/editar/{{ tempProduct.id }}"
-              >
+              <button class="btn btn-outline-warning" routerLink="/editar/{{ tempProduct.id }}">
                 <i class="far fa-edit"></i> Editar
               </button>
             </div>
             <div *ngIf="isAdmin">
-              <button class="btn btn-outline-danger">
+              <button class="btn btn-outline-danger" (click)="borrar(tempProduct.id)">
                 <i class="far fa-trash-alt"></i> Eliminar
               </button>
             </div>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
 

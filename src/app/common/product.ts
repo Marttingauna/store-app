@@ -1,6 +1,6 @@
 export class Product {
   //TO DO: Implementar inicialización de producto
-  id: string;
+  id: number;
   category: string;
   name: string;
   description: string;
