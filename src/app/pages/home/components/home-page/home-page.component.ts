@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  isLogged = false;
+  nombreUsuario= ''
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    if( this.tokenService.getToken()){
+      this.isLogged = true;
+      this.nombreUsuario = this.tokenService.getUserName();
+    } else{
+      this.isLogged = false;
+      this.nombreUsuario= '';
+    }
   }
 
 }

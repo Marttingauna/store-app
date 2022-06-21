@@ -6,24 +6,26 @@ import { ProductListComponent } from './components/product-list-grid/product-lis
 import { ProductlistPageComponent } from './components/productlist-page/productlist-page.component';
 import { MenuSidebarComponent } from './components/menu/menu-sidebar/menu-sidebar.component';
 import { ProductRoutingModule } from './product-routing.module';
-import { ProductCategoryMenuComponent } from './components/menu/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/menu/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
     ProductlistPageComponent,
     MenuSidebarComponent,
     ProductListComponent,
-    ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent,
     CartStatusComponent,
-    CartDetailsComponent
+    CartDetailsComponent,
+    NewProductComponent,
+    EditProductComponent
   ],
   exports:[
     ProductlistPageComponent,
