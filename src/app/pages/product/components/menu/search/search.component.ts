@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,10 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
   myForm!: FormGroup;
   color: string = 'warn';
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private productService: ProductService
+    ) {}
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -18,7 +22,6 @@ export class SearchComponent implements OnInit {
     });
   }
   searchProduct(search: String) {
-    console.log(search);
-    this.router.navigateByUrl(`product/search/${search}`);
+    this.productService.detailName(`${search}`);
   }
 }
