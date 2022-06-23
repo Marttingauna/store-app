@@ -10,6 +10,10 @@ import { TokenService } from '../../../../services/token.service';
 export class NavMenuComponent implements OnInit {
   
   isLogged= false;
+  
+  roles: string[];
+  isAdmin = false;
+
   constructor(private tokenService: TokenService, private route: Router) { }
 
   ngOnInit(): void {
@@ -18,6 +22,13 @@ export class NavMenuComponent implements OnInit {
     }else{
       this.isLogged= false;
     }
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
   onLogout(){
     this.tokenService.logout();
