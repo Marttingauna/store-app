@@ -20,8 +20,7 @@ import { ProductListModule } from './pages/product/product-list.module';
 import { NavMenuComponent } from './common/components/navbar/nav-menu/nav-menu.component';
 import { LoginComponent } from './pages/login/components/login/login.component';
 import { RegisterComponent } from './pages/login/components/register/register.component';
-import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
-
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 //declarations: Declaraciones de los componentes que se usaran en el modulo
@@ -38,6 +37,7 @@ import { HomePageComponent } from './pages/home/components/home-page/home-page.c
     HttpClientModule, //Modulo de cliente http para las peticiones
     AppRoutingModule,//Modulo de rutas
     FormsModule,//Modulo de formularios
+    NgxDropzoneModule, //DropImages para la carga de un producto
 
     BrowserAnimationsModule, //Modulo de animaciones
     // ToastrModule.forRoot(), // ToastrModule notificaciones

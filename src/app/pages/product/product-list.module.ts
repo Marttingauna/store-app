@@ -15,6 +15,10 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+//Ngx lib dropzone
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @NgModule({
   declarations: [
     ProductlistPageComponent,
@@ -35,7 +39,9 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    HttpClientModule,
+    NgxDropzoneModule
   ]
 })
 export class ProductListModule { }
