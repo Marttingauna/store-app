@@ -12,7 +12,7 @@ import { CartItem } from 'src/app/common/cart-item';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: Product = new Product();
+  product: Product;
   isArcade: String;
   constructor(
     private productService: ProductService,
