@@ -50,9 +50,6 @@ export class NewProductComponent implements OnInit {
       producto.active,
       producto.unitsInStock
     );
-
-    console.log('imageUrl',this.imageUrl);
-    
     
 
     this.productoService.save(producto).subscribe(
