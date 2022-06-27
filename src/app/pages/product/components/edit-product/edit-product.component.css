@@ -1,0 +1,48 @@
+.container {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  grid-template-rows: 1.5fr;
+  gap: 20px;
+  grid-auto-flow: row;
+  grid-template-areas: "image details";
+}
+img {
+    width: calc(100vh - 30vh);
+}
+.image {
+  grid-area: image;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.4fr 0.4fr 2.2fr;
+  gap: 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "category name"
+    "price quantity"
+    "description description";
+  grid-area: details;
+  margin-top: 20px;
+}
+
+.description {
+  grid-area: description;
+}
+
+.category {
+  grid-area: category;
+}
+
+.name {
+  grid-area: name;
+}
+
+.price {
+  grid-area: price;
+}
+
+.quantity {
+  grid-area: quantity;
+}

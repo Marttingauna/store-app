@@ -1,1 +1,97 @@
-<p>edit-product works!</p>
+<div class="container" *ngIf="producto">
+  <div class="image">
+    <button class="btn btn-light mb-3" routerLink="/product/list">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi bi-arrow-left-circle-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
+        />
+      </svg>
+      Volver a la lista de juegos
+    </button>
+
+    <img src="{{ producto.imageUrl }}" />
+  </div>
+  <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+    <h2>Actualización de producto</h2>
+    <p>
+      A continuacion podra actualizar los datos del producto en el siguiente
+      formulario .
+    </p>
+    <div class="details">
+      <div class="description">
+        <label for="description">Descripción del producto</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          name="description"
+          [(ngModel)]="producto.description"
+          required
+          rows="4"
+        ></textarea>
+      </div>
+      <div class="category">
+        <label for="category">Categoria</label>
+        <select
+          id="category"
+          class="form-control"
+          name="category"
+          [(ngModel)]="producto.category"
+          required
+        >
+          <option selected>Elija...</option>
+          <option value="ACCION">Acción</option>
+          <option value="STRATEGY">Estrategia</option>
+          <option value="ARCADE">Arcade</option>
+          <option value="SPORT">Deporte</option>
+        </select>
+      </div>
+      <div class="name">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          [(ngModel)]="producto.name"
+          required
+        />
+      </div>
+      <div class="price">
+        <label for="precio">Precio</label>
+        <input
+          type="number"
+          class="form-control"
+          id="precio"
+          name="precio"
+          [(ngModel)]="producto.unitPrice"
+          required
+        />
+      </div>
+      <div class="quantity">
+        <label for="unitsInStock">Cantidad actual</label>
+        <input
+          type="number"
+          class="form-control"
+          id="unitsInStock"
+          name="unitsInStock"
+          [(ngModel)]="producto.unitsInStock"
+          required
+        />
+      </div>
+    </div>
+    <button
+      class="btn btn-outline-success btn-block mt-3"
+      [disabled]="!f.valid"
+    >
+      <i class="fas fa-pencil-alt"></i> Actualizar
+    </button>
+  </form>
+</div>
