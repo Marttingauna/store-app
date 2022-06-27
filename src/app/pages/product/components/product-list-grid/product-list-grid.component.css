@@ -7,7 +7,7 @@
 }
 
 .price {
-  padding: 4px;
+  padding: 5px;
   border-top-left-radius: 10px;
   width: max-content;
   background-color: red;
@@ -71,7 +71,7 @@ ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
   border-color: #ffffff;
   color: rgb(0, 0, 0);
   border-radius: 5px;
-  padding: 5px;
+  padding: 4px;
   margin-top: 5px;
   width: calc(100% - 50px);
   border-radius: 0;
@@ -83,4 +83,12 @@ ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
   --bs-btn-padding-x: 0.5rem;
   --bs-btn-font-size: 0.75rem;
   border-radius: 0;
+}
+.container{
+  /* width: max-content;
+  position: relative;
+  left: -300px; */
+  justify-content: center;
+  background-color: #202020;
+  padding: 50px;
 }

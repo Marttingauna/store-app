@@ -11,10 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class SearchComponent implements OnInit {
   myForm!: FormGroup;
   color: string = 'warn';
-  constructor(
-    private router: Router,
-    private productService: ProductService
-    ) {}
+  constructor(private router: Router, private productService: ProductService) {}
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -22,6 +19,6 @@ export class SearchComponent implements OnInit {
     });
   }
   searchProduct(search: String) {
-    this.productService.detailName(`${search}`);
+    this.router.navigateByUrl(`search/${search}`);
   }
 }

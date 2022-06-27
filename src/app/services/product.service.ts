@@ -23,8 +23,8 @@ export class ProductService {
     return this.httpClient.get<Product>(this.productoURL + `detail/${id}`);
   }
 
-  public detailName(nombre: string): Observable<Product> {
-    return this.httpClient.get<Product>(this.productoURL + `detailname/${nombre}`);
+  public detailName(nombre: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.productoURL + `detailname/${nombre}`);
   }
 
   public save(producto: Product): Observable<any> {
