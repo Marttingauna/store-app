@@ -1,0 +1,61 @@
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.5fr;
+  gap: 20px ;
+  grid-auto-flow: row;
+  grid-template-areas: "title";
+  background-color: #202020;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+
+.title {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr;
+  gap: 20px ;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "."
+    "form-items";
+  grid-area: title;
+}
+
+.form-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px ;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "name category  "
+    "description price "
+    "image quantity";
+  grid-area: form-items;
+}
+
+.category {
+  grid-area: category;
+}
+
+.name {
+  grid-area: name;
+}
+
+.description {
+  grid-area: description;
+}
+
+.price {
+  grid-area: price;
+}
+
+.image {
+  grid-area: image;
+}
+
+.quantity {
+  grid-area: quantity;
+}

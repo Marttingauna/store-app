@@ -85,6 +85,7 @@ export class NewProductComponent implements OnInit {
   onSelect(event) {
     console.log(event);
     this.files.push(...event.addedFiles);
+    this.onUpload()
   }
 
   onRemove(event) {

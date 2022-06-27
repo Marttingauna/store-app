@@ -1,80 +1,100 @@
 <div class="main-content">
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div *ngIf="cartItems.length > 0">
+        <table class="table table-dark">
+          <tr>
+            <th width="20%">Imagen de producto</th>
+            <th width="50%">Detalle</th>
+            <th width="30%"></th>
+          </tr>
 
-            <div *ngIf="cartItems.length > 0">
+          <tr *ngFor="let tempCartItem of cartItems">
+            <td>
+              <img
+                src="{{ tempCartItem.imageUrl }}"
+                class="img-responsive"
+                width="200px"
+              />
+            </td>
+            <td>
+              <p>{{ tempCartItem.name }}</p>
+              <p>{{ tempCartItem.unitPrice | currency: "USD" }}</p>
+            </td>
+            <td>
+              <div class="items">
+                <label>Cantidad: </label>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <button
+                      (click)="incrementQuantity(tempCartItem)"
+                      class="btn btn-secondary btn-sm"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-plus"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
 
-                <table class="table table-dark ">
+                  <div class="col ml-4 mr-2">
+                    {{ tempCartItem.quantity }}
+                  </div>
 
-                    <tr>
-                        <th width="20%">Imagen de producto</th>
-                        <th width="50%">Detalle</th>
-                        <th width="30%"></th>
-                    </tr>
+                  <div class="col">
+                    <button
+                      class="btn btn-secondary btn-sm"
+                      (click)="decrementQuantity(tempCartItem)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-dash"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="col-8"></div>
+                </div>
+              </div>
 
-                    <tr *ngFor="let tempCartItem of cartItems">
-                        <td>
-                            <img src="{{ tempCartItem.imageUrl }}" class="img-responsive" width="200px" />
-                        </td>
-                        <td>
-                            <p>{{ tempCartItem.name }}</p>
-                            <p>{{ tempCartItem.unitPrice | currency: 'USD' }}</p>
-                        </td>
-                        <td>
-                            <div class="items">
-                                <label>Cantidad: </label>
-                                <div class="row no-gutters">
-                                    <div class="col">
-                                        <button (click)="incrementQuantity(tempCartItem)"
-                                            class="btn btn-secondary btn-sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
+              <p class="mt-2">
+                Precio:
+                {{
+                  tempCartItem.quantity * tempCartItem.unitPrice
+                    | currency: "USD"
+                }}
+              </p>
+            </td>
+          </tr>
 
-                                    <div class="col ml-4 mr-2">
-                                        {{tempCartItem.quantity}}
-                                    </div>
+          <tr>
+            <td colspan="2"></td>
+            <td style="font-weight: bold">
+              <p>Cantidad total: {{ totalQuantity }}</p>
 
-                                    <div class="col">
-                                        <button class="btn btn-secondary btn-sm"
-                                            (click)="decrementQuantity(tempCartItem)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
-                                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="col-8"></div>
-                                </div>
-
-                            </div>
-
-                            <p class="mt-2">Precio: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD'
-                                }}
-                            </p>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2"></td>
-                        <td style="font-weight: bold">
-                            <p>Cantidad total: {{ totalQuantity }}</p>
-
-                            <p>Precio a pagar: {{ totalPrice | currency: 'USD' }}</p>
-                        </td>
-                    </tr>
-
-                </table>
-            </div>
-            <div *ngIf="cartItems.length === 0" class="alert alert-dark col-md-12"><strong>El carrito de compras se
-                    encuentra vacio</strong>
-
-            </div>
-
-        </div>
+              <p>Precio a pagar: {{ totalPrice | currency: "USD" }}</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div *ngIf="cartItems.length === 0" class="alert alert-dark col-md-12">
+        <strong>El carrito de compras se encuentra vacio</strong>
+      </div>
     </div>
+  </div>
 </div>

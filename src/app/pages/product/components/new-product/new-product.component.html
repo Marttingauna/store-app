@@ -1,7 +1,8 @@
-<div class="container box">
+<!-- <div class="container box">
   <div class="row mt-5">
     <div class="col-md-4 mx-auto">
       <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+        <h2>Creación un nuevo producto</h2>
         <div class="form-group">
           <label for="category">Categoria</label>
           <select
@@ -95,7 +96,120 @@
           <i class="fas fa-arrow-alt-circle-left"></i> Volver
         </button>
       </form>
-      <div><button (click)="onUpload()">Subir</button></div>
     </div>
   </div>
+</div> -->
+
+<div class="container">
+  <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+    <div class="title">
+      <h2>Creación un nuevo producto</h2>
+      <div class="form-items">
+        <div class="category">
+          <div class="form-group">
+            <label for="category">Categoria</label>
+            <select
+              id="category"
+              class="form-control"
+              name="category"
+              [(ngModel)]="category"
+              required
+            >
+              <option value="ACCION">Acción</option>
+              <option value="STRATEGY">Estrategia</option>
+              <option value="ARCADE">Arcade</option>
+              <option value="SPORT">Deporte</option>
+            </select>
+          </div>
+        </div>
+        <div class="name">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              [(ngModel)]="name"
+              required
+            />
+          </div>
+        </div>
+        <div class="description">
+          <div class="form-group">
+            <label for="description">Descripción del producto</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="description"
+              name="description"
+              [(ngModel)]="description"
+              required
+              rows="3"
+            ></textarea>
+          </div>
+        </div>
+        <div class="price">
+          <div class="form-group">
+            <label for="precio">Precio</label>
+            <input
+              type="number"
+              class="form-control"
+              id="precio"
+              name="precio"
+              [(ngModel)]="unitPrice"
+              required
+            />
+          </div>
+        </div>
+        <div class="image">
+          <div class="form-group">
+            <label for="formFile" class="form-label">Imagen</label>
+            <ngx-dropzone
+              style="
+                height: max-content;
+                background-color: #202020;
+                color: white;
+              "
+              (change)="onSelect($event)"
+            >
+              <ngx-dropzone-label
+                >Arrastre/Seleccione la imagen aqui</ngx-dropzone-label
+              >
+              <ngx-dropzone-image-preview
+                [removable]="true"
+                (removed)="onRemove(f)"
+                ngProjectAs="ngx-dropzone-preview"
+                *ngFor="let f of files"
+                [file]="f"
+              >
+              </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+          </div>
+        </div>
+        <div class="quantity">
+          <div class="form-group">
+            <label for="unitsInStock">Cantidad</label>
+            <input
+              type="number"
+              class="form-control"
+              id="unitsInStock"
+              name="unitsInStock"
+              [(ngModel)]="unitsInStock"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+      <i class="fas fa-plus-circle"></i> Crear
+    </button>
+    <button
+      class="btn btn-outline-primary btn-block"
+      routerLink="/product/list"
+    >
+      <i class="fas fa-arrow-alt-circle-left"></i> Volver
+    </button>
+  </form>
 </div>

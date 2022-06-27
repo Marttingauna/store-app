@@ -5,6 +5,8 @@
   gap: 20px;
   grid-auto-flow: row;
   grid-template-areas: "image details";
+  background-color: #202020;
+  padding: 50px;
 }
 img {
     width: calc(100vh - 30vh);
