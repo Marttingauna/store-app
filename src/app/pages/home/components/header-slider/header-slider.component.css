@@ -3,10 +3,10 @@
   overflow: hidden;
 }
 .header {
-  /* height: 100vh; */
-  display: grid;
+  height: 100vh;
+  /* display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 10px;
+  gap: 10px; */
 }
 .title {
   font-size: 3em;
